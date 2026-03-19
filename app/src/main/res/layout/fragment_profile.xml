@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Import CV Button -->
+        <Button
+            android:id="@+id/btnUploadCV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📄 Import Existing CV"
+            android:backgroundTint="@color/acad_blue_mid"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Profile Photo Section -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/ivProfilePhoto"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_profile"
+                    android:layout_marginBottom="8dp"/>
+
+                <Button
+                    android:id="@+id/btnChangePhoto"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Change Photo"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Basic Info -->
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="First Name" android:layout_marginBottom="8dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etFirstName" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Last Name" android:layout_marginBottom="8dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etLastName" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Email" android:layout_marginBottom="8dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etEmail" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="textEmailAddress"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Phone" android:layout_marginBottom="8dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etPhone" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="phone"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Title / Designation" android:layout_marginBottom="8dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etTitle" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Organisation" android:layout_marginBottom="8dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etOrg" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Location" android:layout_marginBottom="8dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etLocation" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Bio" android:layout_marginBottom="8dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etBio" android:layout_width="match_parent" android:layout_height="wrap_content" android:minLines="3" android:gravity="top"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Skills (comma separated)" android:layout_marginBottom="8dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etSkills" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="ORCID ID" android:layout_marginBottom="8dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etOrcid" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="LinkedIn URL" android:layout_marginBottom="8dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etLinkedIn" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="textUri"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Website" android:layout_marginBottom="16dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etWebsite" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="textUri"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button android:id="@+id/btnSaveProfile" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Save Profile" android:backgroundTint="@color/acad_blue" android:layout_marginBottom="24dp"/>
+
+        <!-- Projects -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Projects" android:textStyle="bold" android:textSize="16sp" android:textColor="@color/text_primary"/>
+            <TextView android:id="@+id/tvProjectCount" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@color/text_secondary"/>
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView android:id="@+id/rvProjects" android:layout_width="match_parent" android:layout_height="wrap_content" android:nestedScrollingEnabled="false"/>
+        <Button android:id="@+id/btnAddProject" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="+ Add Project" android:layout_marginTop="8dp" android:layout_marginBottom="24dp"/>
+
+        <!-- Publications -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Publications" android:textStyle="bold" android:textSize="16sp" android:textColor="@color/text_primary"/>
+            <TextView android:id="@+id/tvPubCount" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@color/text_secondary"/>
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView android:id="@+id/rvPublications" android:layout_width="match_parent" android:layout_height="wrap_content" android:nestedScrollingEnabled="false"/>
+        <Button android:id="@+id/btnAddPublication" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="+ Add Publication" android:layout_marginTop="8dp" android:layout_marginBottom="24dp"/>
+
+        <!-- Awards -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Awards" android:textStyle="bold" android:textSize="16sp" android:textColor="@color/text_primary"/>
+            <TextView android:id="@+id/tvAwardCount" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@color/text_secondary"/>
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView android:id="@+id/rvAwards" android:layout_width="match_parent" android:layout_height="wrap_content" android:nestedScrollingEnabled="false"/>
+        <Button android:id="@+id/btnAddAward" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="+ Add Award" android:layout_marginTop="8dp" android:layout_marginBottom="24dp"/>
+
+        <!-- Grants -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Grants" android:textStyle="bold" android:textSize="16sp" android:textColor="@color/text_primary"/>
+            <TextView android:id="@+id/tvGrantCount" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@color/text_secondary"/>
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView android:id="@+id/rvGrants" android:layout_width="match_parent" android:layout_height="wrap_content" android:nestedScrollingEnabled="false"/>
+        <Button android:id="@+id/btnAddGrant" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="+ Add Grant" android:layout_marginTop="8dp" android:layout_marginBottom="24dp"/>
+
+        <!-- Education -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Education" android:textStyle="bold" android:textSize="16sp" android:textColor="@color/text_primary"/>
+            <TextView android:id="@+id/tvEduCount" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@color/text_secondary"/>
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView android:id="@+id/rvEducation" android:layout_width="match_parent" android:layout_height="wrap_content" android:nestedScrollingEnabled="false"/>
+        <Button android:id="@+id/btnAddEducation" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="+ Add Education" android:layout_marginTop="8dp" android:layout_marginBottom="24dp"/>
+
+        <!-- Export PDF -->
+        <Button android:id="@+id/btnExportPdf" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Export as PDF" android:backgroundTint="@color/acad_blue_dark" android:layout_marginTop="8dp"/>
+
+    </LinearLayout>
+</ScrollView>

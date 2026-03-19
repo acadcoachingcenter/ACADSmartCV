@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvApplyingTo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/acad_blue"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tvPosition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/text_secondary"/>
+
+        <TextView
+            android:id="@+id/tvPreviewName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"/>
+
+        <TextView
+            android:id="@+id/tvPreviewTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_secondary"/>
+
+        <TextView
+            android:id="@+id/tvPreviewOrg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_secondary"/>
+
+        <TextView
+            android:id="@+id/tvPreviewEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_secondary"/>
+
+        <TextView
+            android:id="@+id/tvPreviewBio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/text_primary"/>
+
+        <TextView
+            android:id="@+id/tvPreviewSkills"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/text_secondary"/>
+
+        <LinearLayout
+            android:id="@+id/sectionProjects"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            android:visibility="gone">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Projects: "
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"/>
+            <TextView
+                android:id="@+id/tvProjectCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_secondary"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/sectionPublications"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:visibility="gone">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Publications: "
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"/>
+            <TextView
+                android:id="@+id/tvPubCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_secondary"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/sectionGrants"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:visibility="gone">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Grants"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/sectionAwards"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:visibility="gone">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Awards"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/sectionEducation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:visibility="gone">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Education"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Cover Letter"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"/>
+
+        <TextView
+            android:id="@+id/tvCoverLetter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/text_primary"/>
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Submit Application"
+            android:backgroundTint="@color/acad_blue"/>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="full_name_format">%1$s %2$s</string>
+    <string name="app_name">ACAD SmartCV</string>
+    <string name="tab_home">Home</string>
+    <string name="tab_profile">Profile</string>
+    <string name="tab_apply">Apply</string>
+    <string name="tab_applications">My Apps</string>
+    <string name="add_project">Add Project</string>
+    <string name="add_publication">Add Publication</string>
+    <string name="add_award">Add Award</string>
+    <string name="add_grant">Add Grant</string>
+    <string name="add_education">Add Education</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="submit_application">Submit Application</string>
+    <string name="export_pdf">Export PDF</string>
+    <string name="upload_cv">Upload CV</string>
+    <string name="powered_by">Powered by ACAD Online Coaching Center</string>
+    <string name="acad_tagline">Build your academic identity. Apply smarter.</string>
+    <string name="hint_full_name">Full Name</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_phone">Phone</string>
+    <string name="hint_job_title">Job Title</string>
+    <string name="hint_organisation">Organisation</string>
+    <string name="hint_skills">Skills (comma-separated)</string>
+    <string name="hint_bio_summary">Bio / Summary</string>
+    <string name="btn_pick_cv_file">Pick CV File (PDF / TXT)</string>
+    <string name="btn_save_to_profile">Save to Profile</string>
+</resources>

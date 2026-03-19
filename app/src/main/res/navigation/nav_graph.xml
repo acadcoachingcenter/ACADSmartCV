@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.acad.smartcv.ui.screens.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home_to_profile"
+            app:destination="@id/profileFragment"/>
+        <action
+            android:id="@+id/action_home_to_apply"
+            app:destination="@id/applyFragment"/>
+        <action
+            android:id="@+id/action_to_cvImport"
+            app:destination="@id/cvImportFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.acad.smartcv.ui.screens.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profile_to_addProject"
+            app:destination="@id/addProjectFragment"/>
+        <action
+            android:id="@+id/action_profile_to_addPublication"
+            app:destination="@id/addPublicationFragment"/>
+        <action
+            android:id="@+id/action_profile_to_addAward"
+            app:destination="@id/addAwardFragment"/>
+        <action
+            android:id="@+id/action_profile_to_addGrant"
+            app:destination="@id/addGrantFragment"/>
+        <action
+            android:id="@+id/action_profile_to_addEducation"
+            app:destination="@id/addEducationFragment"/>
+        <action
+            android:id="@+id/action_to_cvImport"
+            app:destination="@id/cvImportFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/applyFragment"
+        android:name="com.acad.smartcv.ui.screens.ApplyFragment"
+        android:label="Apply"
+        tools:layout="@layout/fragment_apply">
+        <action
+            android:id="@+id/action_apply_to_orgDetail"
+            app:destination="@id/orgDetailFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/applicationsFragment"
+        android:name="com.acad.smartcv.ui.screens.ApplicationsFragment"
+        android:label="Applications"
+        tools:layout="@layout/fragment_applications"/>
+
+    <fragment
+        android:id="@+id/addProjectFragment"
+        android:name="com.acad.smartcv.ui.screens.AddProjectFragment"
+        android:label="Add Project"
+        tools:layout="@layout/fragment_add_project"/>
+
+    <fragment
+        android:id="@+id/addPublicationFragment"
+        android:name="com.acad.smartcv.ui.screens.AddPublicationFragment"
+        android:label="Add Publication"
+        tools:layout="@layout/fragment_add_publication"/>
+
+    <fragment
+        android:id="@+id/addAwardFragment"
+        android:name="com.acad.smartcv.ui.screens.AddAwardFragment"
+        android:label="Add Award"
+        tools:layout="@layout/fragment_add_award"/>
+
+    <fragment
+        android:id="@+id/addGrantFragment"
+        android:name="com.acad.smartcv.ui.screens.AddGrantFragment"
+        android:label="Add Grant"
+        tools:layout="@layout/fragment_add_grant"/>
+
+    <fragment
+        android:id="@+id/addEducationFragment"
+        android:name="com.acad.smartcv.ui.screens.AddEducationFragment"
+        android:label="Add Education"
+        tools:layout="@layout/fragment_add_education"/>
+
+    <fragment
+        android:id="@+id/orgDetailFragment"
+        android:name="com.acad.smartcv.ui.screens.OrgDetailFragment"
+        android:label="Organisation"
+        tools:layout="@layout/fragment_org_detail">
+        <argument
+            android:name="orgId"
+            app:argType="long"/>
+        <action
+            android:id="@+id/action_orgDetail_to_applyForm"
+            app:destination="@id/applyFormFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/applyFormFragment"
+        android:name="com.acad.smartcv.ui.screens.ApplyFormFragment"
+        android:label="Apply Form"
+        tools:layout="@layout/fragment_apply_form">
+        <argument
+            android:name="orgId"
+            app:argType="long"/>
+        <action
+            android:id="@+id/action_applyForm_to_preview"
+            app:destination="@id/previewFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/previewFragment"
+        android:name="com.acad.smartcv.ui.screens.PreviewFragment"
+        android:label="Preview"
+        tools:layout="@layout/fragment_preview">
+        <argument
+            android:name="orgId"
+            app:argType="long"/>
+        <argument
+            android:name="position"
+            app:argType="string"
+            android:defaultValue=""/>
+        <argument
+            android:name="coverLetter"
+            app:argType="string"
+            android:defaultValue=""/>
+        <argument
+            android:name="sections"
+            app:argType="string"
+            android:defaultValue=""/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/cvImportFragment"
+        android:name="com.acad.smartcv.ui.screens.CvImportFragment"
+        android:label="Import CV"
+        tools:layout="@layout/fragment_cv_import"/>
+
+</navigation>

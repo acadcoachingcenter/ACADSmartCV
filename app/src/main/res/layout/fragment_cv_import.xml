@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Pick CV File button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPickCvFile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="@string/btn_pick_cv_file"
+            app:icon="@android:drawable/ic_menu_upload" />
+
+        <!-- Name -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:hint="@string/hint_full_name">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etImportName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="textPersonName" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Email -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:hint="@string/hint_email">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etImportEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Phone -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:hint="@string/hint_phone">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etImportPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="phone" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Job Title -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:hint="@string/hint_job_title">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etImportTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="textCapWords" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Organisation -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:hint="@string/hint_organisation">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etImportOrg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="textCapWords" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Skills -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:hint="@string/hint_skills">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etImportSkills"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Bio -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:hint="@string/hint_bio_summary">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etImportBio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:inputType="textMultiLine"
+                android:minLines="3" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Save button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSaveImported"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_save_to_profile"
+            app:icon="@android:drawable/ic_menu_save" />
+
+    </LinearLayout>
+</ScrollView>

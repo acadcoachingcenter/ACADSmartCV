@@ -1,0 +1,2 @@
+ACAD Logo is embedded in app/src/main/res/drawable/acad_logo.png
+Use as: android:src="@drawable/acad_logo"

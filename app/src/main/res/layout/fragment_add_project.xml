@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Title *" android:layout_marginBottom="8dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etTitle" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Role" android:layout_marginBottom="8dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etRole" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Duration" android:layout_marginBottom="8dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etDuration" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Description" android:layout_marginBottom="8dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etDescription" android:layout_width="match_parent" android:layout_height="wrap_content" android:minLines="3" android:gravity="top"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Tags" android:layout_marginBottom="8dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etTags" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Funding Agency" android:layout_marginBottom="8dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etFundingAgency" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Funding Amount" android:layout_marginBottom="8dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etFundingAmount" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Outcomes" android:layout_marginBottom="8dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etOutcomes" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="GitHub URL" android:layout_marginBottom="8dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etGithub" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="textUri"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Project URL" android:layout_marginBottom="16dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etUrl" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="textUri"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <Button android:id="@+id/btnCancel" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Cancel" android:layout_marginEnd="8dp"/>
+            <Button android:id="@+id/btnSave" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Save" android:backgroundTint="@color/acad_blue"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

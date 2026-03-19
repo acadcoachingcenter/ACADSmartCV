@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.SmartCV" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/acad_blue</item>
+        <item name="colorPrimaryDark">@color/acad_blue_dark</item>
+        <item name="colorAccent">@color/acad_blue_mid</item>
+        <item name="colorPrimaryVariant">@color/acad_blue_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/acad_blue_mid</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:colorBackground">@color/background</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="android:fontFamily">@font/dm_sans</item>
+        <item name="android:statusBarColor">@color/acad_blue</item>
+        <item name="android:navigationBarColor">@color/surface</item>
+    </style>
+
+    <style name="Theme.SmartCV.Splash" parent="Theme.SmartCV">
+        <item name="android:windowBackground">@color/acad_blue</item>
+        <item name="android:statusBarColor">@color/acad_blue</item>
+    </style>
+
+    <!-- Card style -->
+    <style name="Widget.SmartCV.Card" parent="Widget.MaterialComponents.CardView">
+        <item name="cardElevation">0dp</item>
+        <item name="cardCornerRadius">12dp</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">@color/divider</item>
+        <item name="cardBackgroundColor">@color/surface</item>
+        <item name="contentPadding">16dp</item>
+    </style>
+
+    <!-- Section header chip -->
+    <style name="Widget.SmartCV.SectionChip" parent="Widget.MaterialComponents.Chip.Action">
+        <item name="android:textSize">10sp</item>
+        <item name="chipCornerRadius">20dp</item>
+    </style>
+
+    <!-- Primary button -->
+    <style name="Widget.SmartCV.Button.Primary" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/acad_blue</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="cornerRadius">10dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/dm_sans_medium</item>
+    </style>
+
+    <!-- Outlined button -->
+    <style name="Widget.SmartCV.Button.Outlined" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="strokeColor">@color/acad_blue</item>
+        <item name="android:textColor">@color/acad_blue</item>
+        <item name="cornerRadius">10dp</item>
+    </style>
+
+    <!-- Input field -->
+    <style name="Widget.SmartCV.TextInput" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">10dp</item>
+        <item name="boxCornerRadiusTopEnd">10dp</item>
+        <item name="boxCornerRadiusBottomStart">10dp</item>
+        <item name="boxCornerRadiusBottomEnd">10dp</item>
+        <item name="boxStrokeColor">@color/acad_blue</item>
+        <item name="hintTextColor">@color/acad_blue</item>
+    </style>
+
+    <!-- FAB -->
+    <style name="Widget.SmartCV.FAB" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="backgroundTint">@color/acad_blue</item>
+        <item name="tint">@color/white</item>
+    </style>
+
+    <!-- Bottom navigation -->
+    <style name="Widget.SmartCV.BottomNav" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="itemTextColor">@color/bottom_nav_color</item>
+        <item name="itemIconTint">@color/bottom_nav_color</item>
+        <item name="android:background">@color/surface</item>
+        <item name="elevation">8dp</item>
+    </style>
+
+</resources>

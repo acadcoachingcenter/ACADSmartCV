@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="2dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="14dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvOrgName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_primary"/>
+
+                <TextView
+                    android:id="@+id/tvOrgType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:textColor="@color/acad_blue"
+                    android:textSize="12sp"/>
+
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/btnBookmark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_bookmark_outline"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:tint="@color/acad_blue"/>
+
+        </LinearLayout>
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textSize="11sp"/>
+
+        <TextView
+            android:id="@+id/tvOrgLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/tvOrgDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textColor="@color/text_primary"
+            android:textSize="13sp"
+            android:maxLines="3"
+            android:ellipsize="end"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnApply"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Apply"
+            app:backgroundTint="@color/acad_blue"/>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

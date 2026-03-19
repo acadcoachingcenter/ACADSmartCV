@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ACAD Primary -->
+    <color name="acad_blue">#185FA5</color>
+    <color name="acad_blue_dark">#0C447C</color>
+    <color name="acad_blue_light">#E6F1FB</color>
+    <color name="acad_blue_mid">#378ADD</color>
+
+    <!-- Surfaces -->
+    <color name="surface">#FFFFFF</color>
+    <color name="surface_variant">#F5F7FA</color>
+    <color name="background">#F0F4F8</color>
+
+    <!-- Text -->
+    <color name="text_primary">#1A1D23</color>
+    <color name="text_secondary">#5A6375</color>
+    <color name="text_hint">#9BA3B0</color>
+
+    <!-- Semantic -->
+    <color name="green">#1D9E75</color>
+    <color name="green_light">#E1F5EE</color>
+    <color name="amber">#BA7517</color>
+    <color name="amber_light">#FAEEDA</color>
+    <color name="coral">#D85A30</color>
+    <color name="coral_light">#FAECE7</color>
+    <color name="purple">#534AB7</color>
+    <color name="purple_light">#EEEDFE</color>
+    <color name="teal">#0F6E56</color>
+    <color name="teal_light">#E1F5EE</color>
+
+    <!-- Status -->
+    <color name="status_draft">#9BA3B0</color>
+    <color name="status_submitted">#378ADD</color>
+    <color name="status_review">#BA7517</color>
+    <color name="status_shortlisted">#1D9E75</color>
+    <color name="status_rejected">#D85A30</color>
+    <color name="status_accepted">#0F6E56</color>
+
+    <!-- Divider -->
+    <color name="divider">#E4E8EE</color>
+
+    <!-- White -->
+    <color name="white">#FFFFFF</color>
+    <!-- Navigation -->
+    <color name="bottom_nav_color">#185FA5</color>   
+</resources>

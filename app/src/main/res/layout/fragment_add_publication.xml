@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Title *" android:layout_marginBottom="8dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etTitle" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Authors" android:layout_marginBottom="8dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etAuthors" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Journal / Venue" android:layout_marginBottom="8dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etJournal" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Year" android:layout_marginBottom="8dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etYear" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="number"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Spinner android:id="@+id/spinnerType" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="DOI" android:layout_marginBottom="8dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etDoi" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="URL" android:layout_marginBottom="8dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etUrl" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="textUri"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Impact Factor" android:layout_marginBottom="8dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etImpactFactor" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Citations" android:layout_marginBottom="8dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etCitations" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="number"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Abstract" android:layout_marginBottom="16dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etAbstract" android:layout_width="match_parent" android:layout_height="wrap_content" android:minLines="3" android:gravity="top"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <Button android:id="@+id/btnCancel" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Cancel" android:layout_marginEnd="8dp"/>
+            <Button android:id="@+id/btnSave" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Save" android:backgroundTint="@color/acad_blue"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
