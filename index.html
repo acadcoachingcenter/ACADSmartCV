@@ -455,6 +455,15 @@ async function handleUpload(input) {
   input.value = '';
 }
 
+function readFileAsText(file) {
+  return new Promise(res => {
+    const r = new FileReader();
+    r.onload = e => res(e.target.result || '');
+    r.readAsText(file);
+  });
+}
+
+async function callGemini(cvText) {
 async function callGemini(cvText) {
   const res = await fetch('/api/parse', {
     method: 'POST',
