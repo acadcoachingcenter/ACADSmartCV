@@ -451,8 +451,14 @@ footer strong{color:rgba(255,255,255,0.8)}
 </footer>
 
 <script>
+const safeStorage = {
+  getItem: k => { try { return safeStorage.getItem(k); } catch(e) { return null; } },
+  setItem: (k,v) => { try { safeStorage.setItem(k,v); } catch(e) {} },
+  removeItem: k => { try { safeStorage.removeItem(k); } catch(e) {} }
+};
+
 // ── SITE KEY — paste your Gemini key here ──────────────────────────────────
-const SITE_KEY = 'AIzaSyDMxLFA4W3PGZkHIM74-G3HUAPiY9Bm_Co';
+const SITE_KEY = 'AIzaSyBL2w4FCl9cAnMQE26oxd1ByBX_QDCFtxw';
 const DAILY_LIMIT = 5;
 // ──────────────────────────────────────────────────────────────────────────
 
@@ -464,8 +470,8 @@ window.addEventListener('load', () => {
   document.getElementById('navLogo').src  = 'data:image/png;base64,' + logo;
   document.getElementById('heroLogo').src = 'data:image/png;base64,' + logo;
   // Load saved data
-  try { const s=localStorage.getItem('acadcv_data'); if(s){ Object.assign(data,JSON.parse(s)); populateProfileFields(); renderAllLists(); } } catch(e){}
-  const k = localStorage.getItem('own_gemini_key');
+  try { const s=safeStorage.getItem('acadcv_data'); if(s){ Object.assign(data,JSON.parse(s)); populateProfileFields(); renderAllLists(); } } catch(e){}
+  const k = safeStorage.getItem('own_gemini_key');
   if (k) document.getElementById('ownKeyInput').value = k;
   updateLimitBadge();
   selectMode('site');
@@ -512,14 +518,14 @@ function selectMode(mode) {
 // ── DAILY LIMIT ─────────────────────────────────────────────────────────────
 function getUsageToday() {
   const today = new Date().toDateString();
-  const saved = JSON.parse(localStorage.getItem('acad_usage')||'{}');
+  const saved = JSON.parse(safeStorage.getItem('acad_usage')||'{}');
   if (saved.date !== today) return 0;
   return saved.count || 0;
 }
 function incrementUsage() {
   const today = new Date().toDateString();
   const count = getUsageToday() + 1;
-  localStorage.setItem('acad_usage', JSON.stringify({date:today, count}));
+  safeStorage.setItem('acad_usage', JSON.stringify({date:today, count}));
   updateLimitBadge();
 }
 function updateLimitBadge() {
@@ -534,12 +540,12 @@ function updateLimitBadge() {
 function saveOwnKey() {
   const k = document.getElementById('ownKeyInput').value.trim();
   if (!k) return alert('Please enter your Gemini API key.');
-  localStorage.setItem('own_gemini_key', k);
+  safeStorage.setItem('own_gemini_key', k);
   showStatus('API key saved!', 'success');
 }
 function getKeyForMode(mode) {
   if (mode === 'site') return SITE_KEY;
-  return document.getElementById('ownKeyInput').value.trim() || localStorage.getItem('own_gemini_key') || '';
+  return document.getElementById('ownKeyInput').value.trim() || safeStorage.getItem('own_gemini_key') || '';
 }
 
 // ── FILE UPLOAD ─────────────────────────────────────────────────────────────
@@ -573,7 +579,7 @@ async function callGemini(cvText, key) {
 {"profile":{"firstName":"","lastName":"","email":"","phone":"","title":"","organization":"","location":"","bio":"","skills":"","linkedIn":"","website":"","orcidId":""},"education":[{"degree":"","institution":"","year":"","field":"","grade":""}],"projects":[{"title":"","role":"","duration":"","description":"","tags":"","fundingAgency":"","fundingAmount":"","outcomes":"","githubUrl":"","projectUrl":""}],"publications":[{"title":"","authors":"","journal":"","year":"","type":"JOURNAL","doi":"","impactFactor":"","citations":"","abstract_text":""}],"awards":[{"name":"","awardingBody":"","year":"","description":"","category":""}],"grants":[{"title":"","agency":"","amount":"","period":"","role":"","status":"Completed"}],"achievements":[{"title":"","category":"OTHER","description":"","year":""}]}
 Rules: skills=comma-separated. Return [] if no items. type: JOURNAL/CONFERENCE/BOOK_CHAPTER/BOOK/PREPRINT/PATENT/THESIS/REPORT.
 CV TEXT:\n${cvText}`;
-  const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${key}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({contents:[{parts:[{text:prompt}]}],generationConfig:{temperature:0.1,maxOutputTokens:4096}})});
+  const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${key}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({contents:[{parts:[{text:prompt}]}],generationConfig:{temperature:0.1,maxOutputTokens:4096}})});
   const json = await res.json();
   if (!res.ok) throw new Error(json.error?.message||'API error '+res.status);
   let raw = json.candidates[0].content.parts[0].text.trim().replace(/^```json/,'').replace(/^```/,'').replace(/```$/,'').trim();
@@ -626,7 +632,7 @@ function renderList(section){const cfg=listConfig[section];const list=document.g
 function removeItem(section,idx){data[section].splice(idx,1);renderList(section);}
 
 // ── SAVE ──────────────────────────────────────────────────────────────────────
-function saveAllToLocal(){data.profile=collectProfile();localStorage.setItem('acadcv_data',JSON.stringify(data));showStatus('Draft saved!','success');}
+function saveAllToLocal(){data.profile=collectProfile();safeStorage.setItem('acadcv_data',JSON.stringify(data));showStatus('Draft saved!','success');}
 
 // ── PREVIEW ───────────────────────────────────────────────────────────────────
 function renderPreview(){
