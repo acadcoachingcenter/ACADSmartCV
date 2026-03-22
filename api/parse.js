@@ -1,12 +1,16 @@
 $content = @'
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).end();
-  
+
+  // Debug: check env var
+  if (!process.env.GROK_API_KEY) {
+    return res.status(500).json({ error: 'GROK_API_KEY is not configured on Vercel' });
+  }
+
   let body = req.body;
   if (typeof body === 'string') {
     try { body = JSON.parse(body); } catch { return res.status(400).json({ error: 'Invalid JSON' }); }
   }
-  
   const text = body?.text;
   if (!text) return res.status(400).json({ error: 'No text provided' });
 
