@@ -14,7 +14,9 @@ export default async function handler(req, res) {
 {"profile":{"firstName":"","lastName":"","email":"","phone":"","title":"","organization":"","location":"","bio":"","skills":"","linkedIn":"","website":"","orcidId":""},"education":[{"degree":"","institution":"","year":"","field":"","grade":""}],"projects":[{"title":"","role":"","duration":"","description":"","tags":"","fundingAgency":"","fundingAmount":"","outcomes":"","githubUrl":"","projectUrl":""}],"publications":[{"title":"","authors":"","journal":"","year":"","type":"JOURNAL","doi":"","impactFactor":"","citations":"","abstract_text":""}],"awards":[{"name":"","awardingBody":"","year":"","description":"","category":""}],"grants":[{"title":"","agency":"","amount":"","period":"","role":"","status":"Completed"}],"achievements":[{"title":"","category":"OTHER","description":"","year":""}]}
 Rules: skills=comma-separated. Return [] if no items. type: JOURNAL/CONFERENCE/BOOK_CHAPTER/BOOK/PREPRINT/PATENT/THESIS/REPORT.
 CV TEXT:\n${text}`;
-
+  if (!process.env.GROK_API_KEY) {
+  return res.status(500).json({ error: 'GROK_API_KEY is not set' });
+  }
   try {
     const response = await fetch('https://api.x.ai/v1/chat/completions', {
       method: 'POST',
@@ -36,7 +38,7 @@ CV TEXT:\n${text}`;
     const result = data.choices[0].message.content;
     res.status(200).json({ candidates: [{ content: { parts: [{ text: result }] } }] });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: err.message, stack: err.stack });
   }
 }
 '@
