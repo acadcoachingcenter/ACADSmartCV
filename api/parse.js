@@ -17,7 +17,7 @@ export default async function handler(req, res) {
 
   if (!text) return res.status(400).json({ error: 'No text provided' });
 
-  const prompt = `You are a CV parser. Extract all information from the following CV text and return it as a single JSON object. Return ONLY the JSON, no markdown, no backticks.
+  const prompt = `You are a CV parser. Extract all information from the following CV text and return it as a single JSON object. Return ONLY valid JSON, no markdown, no backticks, no explanation.
 {"profile":{"firstName":"","lastName":"","email":"","phone":"","title":"","organization":"","location":"","bio":"","skills":"","linkedIn":"","website":"","orcidId":""},"education":[{"degree":"","institution":"","year":"","field":"","grade":""}],"projects":[{"title":"","role":"","duration":"","description":"","tags":"","fundingAgency":"","fundingAmount":"","outcomes":"","githubUrl":"","projectUrl":""}],"publications":[{"title":"","authors":"","journal":"","year":"","type":"JOURNAL","doi":"","impactFactor":"","citations":"","abstract_text":""}],"awards":[{"name":"","awardingBody":"","year":"","description":"","category":""}],"grants":[{"title":"","agency":"","amount":"","period":"","role":"","status":"Completed"}],"achievements":[{"title":"","category":"OTHER","description":"","year":""}]}
 Rules: skills=comma-separated. Return [] if no items. type: JOURNAL/CONFERENCE/BOOK_CHAPTER/BOOK/PREPRINT/PATENT/THESIS/REPORT.
 CV TEXT:\n${text}`;
@@ -40,7 +40,8 @@ CV TEXT:\n${text}`;
     if (!response.ok) {
       return res.status(response.status).json({ error: data.error?.message || 'API error' });
     }
-    const result = data.choices[0].message.content;
+    let result = data.choices[0].message.content;
+    result = result.replace(/^```json\s*/i, '').replace(/^```\s*/i, '').replace(/```\s*$/i, '').trim();
     res.status(200).json({ candidates: [{ content: { parts: [{ text: result }] } }] });
   } catch (err) {
     res.status(500).json({ error: err.message, stack: err.stack });
