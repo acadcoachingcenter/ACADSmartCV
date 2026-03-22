@@ -4,18 +4,16 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: 'GROK_API_KEY is not configured' });
   }
 
-  let text;
-  try {
-    const chunks = [];
-    for await (const chunk of req) chunks.push(chunk);
-    const raw = Buffer.concat(chunks).toString('utf8');
-    const body = JSON.parse(raw);
-    text = body?.text;
-  } catch (e) {
-    return res.status(400).json({ error: 'Failed to parse request body' });
+  // Log what we receive for debugging
+  const text = req.body?.text || req.body?.cvText || null;
+  
+  if (!text) {
+    return res.status(400).json({ 
+      error: 'No text provided', 
+      receivedBody: JSON.stringify(req.body),
+      bodyType: typeof req.body
+    });
   }
-
-  if (!text) return res.status(400).json({ error: 'No text provided' });
 
   const prompt = `You are a CV parser. Extract all information from the following CV text and return it as a single JSON object. Return ONLY valid JSON, no markdown, no backticks, no explanation.
 {"profile":{"firstName":"","lastName":"","email":"","phone":"","title":"","organization":"","location":"","bio":"","skills":"","linkedIn":"","website":"","orcidId":""},"education":[{"degree":"","institution":"","year":"","field":"","grade":""}],"projects":[{"title":"","role":"","duration":"","description":"","tags":"","fundingAgency":"","fundingAmount":"","outcomes":"","githubUrl":"","projectUrl":""}],"publications":[{"title":"","authors":"","journal":"","year":"","type":"JOURNAL","doi":"","impactFactor":"","citations":"","abstract_text":""}],"awards":[{"name":"","awardingBody":"","year":"","description":"","category":""}],"grants":[{"title":"","agency":"","amount":"","period":"","role":"","status":"Completed"}],"achievements":[{"title":"","category":"OTHER","description":"","year":""}]}
