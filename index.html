@@ -608,11 +608,47 @@ function renderPreview(){
 }
 
 // ── EXPORT PDF ────────────────────────────────────────────────────────────────
-async function exportPDF(){renderPreview();showStatus('Generating PDF...');await new Promise(r=>setTimeout(r,300));const el=document.getElementById('cv-content');const canvas=await html2canvas(el,{scale:2,backgroundColor:'#fff',useCORS:true});const{jsPDF}=window.jspdf;const pdf=new jsPDF('p','mm','a4');const w=pdf.internal.pageSize.getWidth();const h=(canvas.height*w)/canvas.width;let pos=0;const pageH=pdf.internal.pageSize.getHeight();while(pos<h){if(pos>0)pdf.addPage();pdf.addImage(canvas.toDataURL('image/jpeg',0.95),'JPEG',0,-pos,w,h);pos+=pageH;}const name=[data.profile.firstName,data.profile.lastName].filter(Boolean).join('_')||'CV';pdf.save(`${name}_CV.pdf`);hideStatus();}
-
+// async function exportPDF(){renderPreview();showStatus('Generating PDF...');await new Promise(r=>setTimeout(r,300));const el=document.getElementById('cv-content');const canvas=await html2canvas(el,{scale:2,backgroundColor:'#fff',useCORS:true});const{jsPDF}=window.jspdf;const pdf=new jsPDF('p','mm','a4');const w=pdf.internal.pageSize.getWidth();const h=(canvas.height*w)/canvas.width;let pos=0;const pageH=pdf.internal.pageSize.getHeight();while(pos<h){if(pos>0)pdf.addPage();pdf.addImage(canvas.toDataURL('image/jpeg',0.95),'JPEG',0,-pos,w,h);pos+=pageH;}const name=[data.profile.firstName,data.profile.lastName].filter(Boolean).join('_')||'CV';pdf.save(`${name}_CV.pdf`);hideStatus();}
+async function exportPDF() {
+  data.profile = collectProfile();
+  
+  // Create a temporary visible div outside the panel
+  const temp = document.createElement('div');
+  temp.style.cssText = 'position:fixed;left:-9999px;top:0;width:800px;background:#fff;padding:48px;font-family:DM Sans,sans-serif;color:#111;z-index:-1';
+  temp.id = 'cv-export-temp';
+  document.body.appendChild(temp);
+  
+  // Render preview into temp div
+  const original = document.getElementById('cv-content');
+  renderPreview();
+  temp.innerHTML = original.innerHTML;
+  
+  showStatus('Generating PDF...');
+  await new Promise(r => setTimeout(r, 500));
+  
+  const canvas = await html2canvas(temp, { scale: 2, backgroundColor: '#fff', useCORS: true });
+  document.body.removeChild(temp);
+  
+  const { jsPDF } = window.jspdf;
+  const pdf = new jsPDF('p', 'mm', 'a4');
+  const w = pdf.internal.pageSize.getWidth();
+  const h = (canvas.height * w) / canvas.width;
+  let pos = 0;
+  const pageH = pdf.internal.pageSize.getHeight();
+  while (pos < h) {
+    if (pos > 0) pdf.addPage();
+    pdf.addImage(canvas.toDataURL('image/jpeg', 0.95), 'JPEG', 0, -pos, w, h);
+    pos += pageH;
+  }
+  const name = [data.profile.firstName, data.profile.lastName].filter(Boolean).join('_') || 'CV';
+  pdf.save(`${name}_CV.pdf`);
+  hideStatus();
+}
 // ── EXPORT WORD ───────────────────────────────────────────────────────────────
 function exportWord(){data.profile=collectProfile();const p=data.profile;const name=[p.firstName,p.lastName].filter(Boolean).join(' ')||'CV';let html=`<html><head><meta charset="UTF-8"><style>body{font-family:Calibri,sans-serif;font-size:11pt;margin:2cm}h1{font-size:20pt;color:#0D1B2A;margin-bottom:2pt}h2{font-size:10pt;color:#555;font-weight:normal;margin-bottom:6pt}.contact{font-size:9pt;color:#666;margin-bottom:12pt;border-bottom:1.5pt solid #0D1B2A;padding-bottom:6pt}h3{font-size:10pt;text-transform:uppercase;letter-spacing:1pt;color:#0D1B2A;border-bottom:.5pt solid #ccc;padding-bottom:2pt;margin-top:14pt;margin-bottom:6pt}.item{margin-bottom:8pt}strong{font-size:10.5pt}.sub{font-size:9pt;color:#666;margin:1pt 0}.desc{font-size:9.5pt;margin-top:2pt}.skill{background:#f0ede4;padding:1pt 5pt;margin:2pt;display:inline-block;font-size:9pt}</style></head><body>`;
-html+=`<h1>${name}</h1>`;if(p.title||p.organization)html+=`<h2>${[p.title,p.organization].filter(Boolean).join(' · ')}</h2>`;if(p.photo)html+=`<img src="${p.photo}" style="width:80pt;height:80pt;border-radius:50%;object-fit:cover;float:right;margin:0 0 10pt 16pt;border:2pt solid #D6CFB4"/>`;const contact=[p.email,p.phone,p.location,p.linkedIn,p.website,p.orcidId].filter(Boolean).join('  |  ');if(contact)html+=`<div class="contact">${contact}</div>`;if(p.bio)html+=`<h3>Profile</h3><div class="desc">${p.bio}</div>`;if(p.skills)html+=`<h3>Skills</h3><div>${p.skills.split(',').map(s=>`<span class="skill">${s.trim()}</span>`).join('')}</div>`;
+html+=`<h1>${name}</h1>`;if(p.title||p.organization)html+=`<h2>${[p.title,p.organization].filter(Boolean).join(' · ')}</h2>`;
+                      if(p.photo)html+=`<img src="${p.photo}" style="width:80pt;height:80pt;border-radius:50%;object-fit:cover;float:right;margin:0 0 10pt 16pt;border:2pt solid #D6CFB4"/>`; 
+                      const contact=[p.email,p.phone,p.location,p.linkedIn,p.website,p.orcidId].filter(Boolean).join('  |  ');if(contact)html+=`<div class="contact">${contact}</div>`;if(p.bio)html+=`<h3>Profile</h3><div class="desc">${p.bio}</div>`;if(p.skills)html+=`<h3>Skills</h3><div>${p.skills.split(',').map(s=>`<span class="skill">${s.trim()}</span>`).join('')}</div>`;
 const sec=(title,items,render)=>items.length?`<h3>${title}</h3>${items.map(render).join('')}`:'';
 html+=sec('Education',data.education,e=>`<div class="item"><strong>${e.degree}${e.field?' in '+e.field:''}</strong> &nbsp; <span style="color:#888">${e.year||''}</span><div class="sub">${e.institution||''}${e.grade?' · '+e.grade:''}</div></div>`);
 html+=sec('Projects',data.projects,pr=>`<div class="item"><strong>${pr.title}</strong> &nbsp; <span style="color:#888">${pr.duration||''}</span><div class="sub">${pr.role||''}${pr.fundingAgency?' · '+pr.fundingAgency:''}${pr.fundingAmount?' ('+pr.fundingAmount+')':''}</div>${pr.description?`<div class="desc">${pr.description}</div>`:''}</div>`);
