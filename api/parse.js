@@ -36,7 +36,7 @@ CV TEXT:\n${text}`;
     });
     const data = await response.json();
     if (!response.ok) {
-      return res.status(response.status).json({ error: data.error?.message || 'API error' });
+      return res.status(response.status).json({ error: data.error?.message || 'API error', details: data });
     }
     let result = data.choices[0].message.content;
     result = result.replace(/^```json\s*/i, '').replace(/^```\s*/i, '').replace(/```\s*$/i, '').trim();
