@@ -21,7 +21,7 @@ Rules: skills=comma-separated. Return [] if no items. type: JOURNAL/CONFERENCE/B
 CV TEXT:\n${text}`;
 
   try {
-    const response = await fetch('https://api.x.ai/v1/chat/completions', {
+    const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
